@@ -22,7 +22,7 @@ public class CommentService {
     public Comment saveComment(Comment comment) {
         // Use restTemplate for making HTTP requests
         Post post = restTemplate.getForObject("http://POST-SERVICE/api/posts/" + comment.getPostId(), Post.class);
-
+                                //without getRestTamplate()
         if (post != null) {
             String commentId = UUID.randomUUID().toString();
             comment.setCommentId(commentId);

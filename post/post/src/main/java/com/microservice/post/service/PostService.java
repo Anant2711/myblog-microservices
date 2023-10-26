@@ -32,6 +32,7 @@ public class PostService {
     public PostDto getPostWithComments(String postId) {//resttamplate use
         Post post = postRepository.findById(postId).get();
         ArrayList comments = restTemplate.getForObject("http://COMMENT-SERVICE/api/Comments/" + postId, ArrayList.class);
+                                          //without getRestTamplate()
         //get both details entity and dto
         PostDto postDto = new PostDto();
         postDto.setPostId(post.getId());
